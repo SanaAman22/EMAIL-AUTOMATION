@@ -1,40 +1,22 @@
 # EMAIL-AUTOMATION
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email import encoders
+Code Explanation
+➤ Libraries used: import smtplib, from email.mime.multipart import MIMEMultipart, from email.mime.text import MIMEText, from email.mime.base import MIMEBase, from email import encoders,
 
-"""initialising from addr and to addr"""
-from_addr=' Alevender242 @gmail.com '
-to_addr=[' saniya543@gmail.com ']
+➤ Create an instance of MIMEMultipart (msg)
 
-"""creating duplicate containers and adding from and to adress"""
-msg=MIMEMultipart()
-msg['From']=from_addr
-msg['To']=" ,".join(to_addr)
-msg['subject']='just to check'
+➤ Mention the sender’s email id, recipient’s email id and the subject in the “From”, “To” and “Subject” key of the created instance “msg”
 
-body='hello world'
-msg.attach(MIMEText(body,'plain'))
-#attaching file by using MIMEBase
-filename = 'code.pdf'
-attachment = open(filename,'rb')
+➤ Write the body of the message you want to send, namely body. Now, attach the body with the instance msg using attach function
 
-part = MIMEBase('application','octet-stream')
-part.set_payload((attachment).read())
-encoders.encode_base64(part)
-part.add_header('Content-Disposition',"attachment;filename= "+filename)
-"""login credentials"""
-email=' Alevender242@gmail.com '
-password=' 12354 '
+➤ Open the file you wish to attach in the “rb” mode
 
-"""connecting to server via local host and ip adress"""
-msg.attach(part)
-mail=smtplib.SMTP('smtp.gmail.com',587)
-mail.ehlo()
-mail.starttls()
-mail.login(email,password)
-text=msg.as_string()
-mail.sendmail(from_addr,to_addr,text)
-mail.quit()
+➤ set_payload is used to change the payload the encoded form. Encode it in encode_base64.
+
+➤ And finally attach the file with the MIMEMultipart created instance msg
+
+Note
+➤ This code will not work if you have enabled 2-step verification on your gmail account. It is required to switch off the 2-step verification first
+
+➤ Now using this link: https://myaccount.google.com/lesssecureapps, allow less secure apps and torn it on
+
+➤ With this method, Gmail will always put your mail in the primary section and the mails sent will not be Spam
