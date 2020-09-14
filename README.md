@@ -1,5 +1,7 @@
 # EMAIL-AUTOMATION
 Code Explanation
+
+
 ➤ Libraries used: import smtplib, from email.mime.multipart import MIMEMultipart, from email.mime.text import MIMEText, from email.mime.base import MIMEBase, from email import encoders,
 
 ➤ Create an instance of MIMEMultipart (msg)
@@ -15,8 +17,10 @@ Code Explanation
 ➤ And finally attach the file with the MIMEMultipart created instance msg
 
 Note
-➤ This code will not work if you have enabled 2-step verification on your gmail account. It is required to switch off the 2-step verification first
 
-➤ Now using this link: https://myaccount.google.com/lesssecureapps, allow less secure apps and torn it on
 
-➤ With this method, Gmail will always put your mail in the primary section and the mails sent will not be Spam
+➤ This code will not work if you have enabled 2-step verification on your gmail account. It is required to switch off the 2-step verification first.
+
+➤ Now using this link: https://myaccount.google.com/lesssecureapps, allow less secure apps and turn it on.
+
+➤ With this method, Gmail will always put your mail in the primary section and the mails sent will not be Spam.
